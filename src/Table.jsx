@@ -18,7 +18,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Link from '@mui/material/Link';
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
-import {ToastError,ToastSuccess} from './utility'
+import {ToastError} from './utility'
 
 import keys from './config'
 
@@ -111,7 +111,7 @@ export default function CustomPaginationActionsTable(props) {
   
   const getAllUploadedData = async () => {
     setLoading(true);
-    let response = await fetch(keys.BASE_URL + `getAllData?pageSize=${rowsPerPage}&pageNo=${page}`)
+    let response = await fetch(keys.HEROKU_URL + `getAllData?pageSize=${rowsPerPage}&pageNo=${page}`)
     setLoading(false);
     let result = await response.json();
     console.log(result);

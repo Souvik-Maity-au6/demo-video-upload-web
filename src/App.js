@@ -1,8 +1,7 @@
 import { Input, Typography, Box, Container, Button, Stack } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
-import logo from './logo.svg';
 import Table from './Table'
 import {ToastError,ToastSuccess} from './utility'
 import './App.css';
@@ -25,7 +24,7 @@ const App = () => {
         redirect: 'follow'
       };
       setLoading(true)
-      const response = await fetch(keys.BASE_URL + 'addData', requestOptions)
+      const response = await fetch(keys.HEROKU_URL + 'addData', requestOptions)
       let result = await response.json();
       console.log(result);
       setLoading(false)
